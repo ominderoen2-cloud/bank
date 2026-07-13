@@ -8,7 +8,7 @@ def test_create_premium_account(client):
         "name": "John",
         "age": 25,
         "amount": 5000,
-        "next_of_keen": "Jane",
+        "next_of_kin": "Jane",
         "account_type": "premium_account"
     }
 
@@ -24,7 +24,7 @@ def test_duplicate_premium_account(client):
         "name": "John",
         "age": 25,
         "amount": 5000,
-        "next_of_keen": "Jane",
+        "next_of_kin": "Jane",
         "account_type": "premium_account"
     }
 
@@ -41,7 +41,7 @@ def test_list_premium_accounts(client):
         "name": "John",
         "age": 25,
         "amount": 5000,
-        "next_of_keen": "Jane",
+        "next_of_kin": "Jane",
         "account_type": "premium_account"
     }
 
@@ -60,7 +60,7 @@ def test_get_one_premium_account(client):
         "name": "John",
         "age": 25,
         "amount": 5000,
-        "next_of_keen": "Jane",
+        "next_of_kin": "Jane",
         "account_type": "premium_account"
     }
 
@@ -78,7 +78,7 @@ def test_search_by_national_id(client):
         "name": "John",
         "age": 25,
         "amount": 5000,
-        "next_of_keen": "Jane",
+        "next_of_kin": "Jane",
         "account_type": "premium_account"
     }
 
@@ -96,7 +96,7 @@ def test_update_premium_account(client):
         "name": "John",
         "age": 25,
         "amount": 5000,
-        "next_of_keen": "Jane",
+        "next_of_kin": "Jane",
         "account_type": "premium_account"
     }
 
@@ -108,7 +108,7 @@ def test_update_premium_account(client):
             "name": "John Updated",
             "age": 26,
             "amount": 6000,
-            "next_of_keen": "James"
+            "next_of_kin": "James"
         },
     )
 
@@ -122,7 +122,7 @@ def test_delete_premium_account(client):
         "name": "John",
         "age": 25,
         "amount": 5000,
-        "next_of_keen": "Jane",
+        "next_of_kin": "Jane",
         "account_type": "premium_account"
     }
 

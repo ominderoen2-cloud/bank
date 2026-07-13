@@ -5,7 +5,7 @@ def validate_junior_account_data(data, require_birthcertificate=True):
     name = data.get("name")
     age = data.get("age")
     amount = data.get("amount")
-    next_of_keen = data.get("next_of_keen")
+    next_of_kin = data.get("next_of_kin")
     account_type = data.get("account_type")
 
     if require_birthcertificate:
@@ -16,7 +16,7 @@ def validate_junior_account_data(data, require_birthcertificate=True):
             name is None or
             age is None or
             amount is None or
-            next_of_keen is None or
+            next_of_kin is None or
             account_type is None
         ):
             return None, {"message": "missing fields"}, 400
@@ -26,7 +26,7 @@ def validate_junior_account_data(data, require_birthcertificate=True):
             name is None or
             age is None or
             amount is None or
-            next_of_keen is None
+            next_of_kin is None
         ):
             return None, {"message": "missing fields"}, 400
 
@@ -43,6 +43,6 @@ def validate_junior_account_data(data, require_birthcertificate=True):
         "name": name,
         "age": age,
         "amount": amount,
-        "next_of_keen": next_of_keen,
+        "next_of_kin": next_of_kin,
         "account_type": account_type,
     }, None, None

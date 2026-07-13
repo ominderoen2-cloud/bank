@@ -6,7 +6,7 @@ class PremiumAccount:
     clean_data , error , status = validate_premium_account_data(data)
     if error:
         return error , status
-    success = create_premium_account(clean_data["account_number"] , clean_data["national_id"], clean_data["name"], clean_data["age"], clean_data["amount"], clean_data["next_of_keen"], clean_data["account_type"])
+    success = create_premium_account(clean_data["account_number"] , clean_data["national_id"], clean_data["name"], clean_data["age"], clean_data["amount"], clean_data["next_of_kin"], clean_data["account_type"])
     if not success:
         return {"message":"account not created"},409
     return {"message":"account successfully created"},201
@@ -14,7 +14,7 @@ class PremiumAccount:
     clean_data , error , status = validate_premium_account_data(data , require_national_id=False)
     if error:
         return error , status
-    success = update_premium_account_data(clean_data["name"] , clean_data["age"], clean_data["amount"], clean_data["next_of_keen"],account_number)
+    success = update_premium_account_data(clean_data["name"] , clean_data["age"], clean_data["amount"], clean_data["next_of_kin"],account_number)
     if not success:
         return{"message":"account not updated"},400
     return {"message":"account successfully updated"},200

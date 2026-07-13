@@ -17,7 +17,7 @@ class Transactions:
         if not success:
             return{"message":"transaction not found"},404
         return success , 200
-    def update_recieve_transaction_service(self, data, transaction_id):
+    def update_receive_transaction_service(self, data, transaction_id):
        clean_data, error, status = validate_transactions_data(
           data,
           require_transaction_id=False

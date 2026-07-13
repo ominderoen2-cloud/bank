@@ -4,10 +4,10 @@ def validate_premium_account_data(data , require_national_id= True):
     name = data.get("name")
     age = data.get("age")
     amount = data.get("amount")
-    next_of_keen = data.get("next_of_keen")
+    next_of_kin = data.get("next_of_kin")
     account_type = data.get("account_type")
     if  require_national_id:
-        if not account_number or not account_type or not name or not age or not amount or not next_of_keen or national_id is None:
+        if not account_number or not account_type or not name or not age or not amount or not next_of_kin or national_id is None:
             return None ,{"message":"missing credentials"},400
         try:
           amount = int(amount)
@@ -20,7 +20,7 @@ def validate_premium_account_data(data , require_national_id= True):
         "name":name,
         "age":age ,
         "amount":amount,
-        "next_of_keen":next_of_keen ,
+        "next_of_kin":next_of_kin ,
         "account_type":account_type
 
     } , None , None

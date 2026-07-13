@@ -20,5 +20,5 @@ def update_send_trans(transaction_id):
     return jsonify(response) , status
 @trans_bp.route("/trans/recieve/<transaction_id>" , methods = ["PUT"])
 def update_recieve_trans(transaction_id):
-    response , status = trans_services.update_recieve_transaction_service(request.json , transaction_id)
+    response , status = trans_services.update_receive_transaction_service(request.json , transaction_id)
     return jsonify(response) , status

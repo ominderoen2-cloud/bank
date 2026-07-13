@@ -9,7 +9,7 @@ def test_create_junior_account(client):
         "name": "Junior",
         "age": 12,
         "amount": 1000,
-        "next_of_keen": "Parent",
+        "next_of_kin": "Parent",
         "account_type": "junior_account"
     }
 
@@ -26,7 +26,7 @@ def test_duplicate_junior_account(client):
         "name": "Junior",
         "age": 12,
         "amount": 1000,
-        "next_of_keen": "Parent",
+        "next_of_kin": "Parent",
         "account_type": "junior_account"
     }
 
@@ -44,7 +44,7 @@ def test_list_junior_accounts(client):
         "name": "Junior",
         "age": 12,
         "amount": 1000,
-        "next_of_keen": "Parent",
+        "next_of_kin": "Parent",
         "account_type": "junior_account"
     }
 
@@ -63,7 +63,7 @@ def test_get_one_junior_account(client):
         "name": "Junior",
         "age": 12,
         "amount": 1000,
-        "next_of_keen": "Parent",
+        "next_of_kin": "Parent",
         "account_type": "junior_account"
     }
 
@@ -82,7 +82,7 @@ def test_search_by_birth_certificate(client):
         "name": "Junior",
         "age": 12,
         "amount": 1000,
-        "next_of_keen": "Parent",
+        "next_of_kin": "Parent",
         "account_type": "junior_account"
     }
 
@@ -101,7 +101,7 @@ def test_update_junior_account(client):
         "name": "Junior",
         "age": 12,
         "amount": 1000,
-        "next_of_keen": "Parent",
+        "next_of_kin": "Parent",
         "account_type": "junior_account"
     }
 
@@ -114,7 +114,7 @@ def test_update_junior_account(client):
             "name": "Junior Updated",
             "age": 13,
             "amount": 2000,
-            "next_of_keen": "Mother"
+            "next_of_kin": "Mother"
         },
     )
 
@@ -129,7 +129,7 @@ def test_delete_junior_account(client):
         "name": "Junior",
         "age": 12,
         "amount": 1000,
-        "next_of_keen": "Parent",
+        "next_of_kin": "Parent",
         "account_type": "junior_account"
     }
 

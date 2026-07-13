@@ -3,14 +3,14 @@ from connect_db import connect_db
 def create_premium_account_table():
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute("""CREATE TABLE IF NOT EXISTS premiumaccount (account_number TEXT PRIMARY KEY , national_id TEXT , name TEXT , age INTEGER , amount INTEGER , next_of_keen TEXT , account_type TEXT)""")
+    cursor.execute("""CREATE TABLE IF NOT EXISTS premiumaccount (account_number TEXT PRIMARY KEY , national_id TEXT , name TEXT , age INTEGER , amount INTEGER , next_of_kin TEXT , account_type TEXT)""")
     conn.commit()
     conn.close()
-def create_premium_account(account_number , national_id , name , age , amount ,next_of_keen, account_type):
+def create_premium_account(account_number , national_id , name , age , amount ,next_of_kin, account_type):
     conn = connect_db()
     cursor = conn.cursor()
     try:
-      cursor.execute("INSERT INTO premiumaccount (account_number , national_id , name , age , amount , next_of_keen , account_type) VALUES(%s, %s , %s , %s , %s , %s ,%s)" , (account_number , national_id , name , age , amount, next_of_keen , account_type))
+      cursor.execute("INSERT INTO premiumaccount (account_number , national_id , name , age , amount , next_of_kin , account_type) VALUES(%s, %s , %s , %s , %s , %s ,%s)" , (account_number , national_id , name , age , amount, next_of_kin , account_type))
       conn.commit()
       return True
     except psycopg2.IntegrityError:
@@ -20,14 +20,14 @@ def create_premium_account(account_number , national_id , name , age , amount ,n
 def list_premium_accounts():
    conn = connect_db()
    cursor = conn.cursor()
-   cursor.execute("SELECT account_number , national_id , name , age , amount , next_of_keen, account_type FROM premiumaccount")
+   cursor.execute("SELECT account_number , national_id , name , age , amount , next_of_kin, account_type FROM premiumaccount")
    rows = cursor.fetchall()
    conn.close()
    return rows
-def update_premium_account_data(name , age , amount , next_of_keen , account_number):
+def update_premium_account_data(name , age , amount , next_of_kin , account_number):
    conn =connect_db()
    cursor = conn.cursor()
-   cursor.execute("UPDATE premiumaccount SET name = %s , age = %s , amount = %s  , next_of_keen = %s WHERE account_number = %s",(name , age , amount , next_of_keen , account_number))
+   cursor.execute("UPDATE premiumaccount SET name = %s , age = %s , amount = %s  , next_of_kin = %s WHERE account_number = %s",(name , age , amount , next_of_kin , account_number))
    conn.commit()
    updated = cursor.rowcount
    conn.close()
@@ -43,14 +43,14 @@ def delete_premium_account_data(account_number):
 def get_one_premium_account(account_number):
    conn = connect_db()
    cursor = conn.cursor()
-   cursor.execute("SELECT account_number , national_id , name , age , amount  , next_of_keen , account_type  FROM premiumaccount WHERE account_number = %s" , (account_number,))
+   cursor.execute("SELECT account_number , national_id , name , age , amount  , next_of_kin , account_type  FROM premiumaccount WHERE account_number = %s" , (account_number,))
    rows = cursor.fetchone()
    conn.close()
    return rows
 def search_premium_account_by_national_id(national_id):
    conn = connect_db()
    cursor = conn.cursor()
-   cursor.execute("SELECT account_number , national_id , name ,age , amount  , next_of_keen , account_type FROM premiumaccount WHERE national_id = %s" , (national_id,))
+   cursor.execute("SELECT account_number , national_id , name ,age , amount  , next_of_kin , account_type FROM premiumaccount WHERE national_id = %s" , (national_id,))
    rows = cursor.fetchone()
    conn.close()
    return rows
