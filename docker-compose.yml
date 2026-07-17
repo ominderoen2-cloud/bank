@@ -1,0 +1,57 @@
+services:
+  db:
+    image: postgres:16
+    container_name: bank-db
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: bank_user
+      POSTGRES_PASSWORD: bank_pass
+      POSTGRES_DB: bank
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bank_user -d bank"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+    networks:
+      - backend
+
+
+  api:
+    build: .
+    container_name: bank-api
+    restart: unless-stopped
+
+    ports:
+      - "8001:5000"
+
+    environment:
+      PORT : 5000
+      DB_NAME: bank
+      DB_USER: bank_user
+      DB_PASSWORD: bank_pass
+      DB_HOST: db
+      DB_PORT: 5432
+
+    depends_on:
+      db:
+        condition: service_healthy
+
+    networks:
+      - backend
+
+
+volumes:
+  pgdata:
+
+networks:
+  backend:
+    driver: bridge

@@ -6,14 +6,13 @@ auth_bp = Blueprint("auth", __name__)
 auth_service = AuthServices()
 
 @auth_bp.route("/register", methods=["POST"])
-@jwt_required()
 def register():
+    print("REGISTER ROUTE HIT")
     data = request.get_json()
     response, status = auth_service.register(data)
     return response, status
 
 @auth_bp.route("/login", methods=["POST"])
-@jwt_required()
 def login():
     data = request.get_json()
     result = auth_service.login(data)
