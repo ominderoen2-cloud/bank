@@ -4,6 +4,13 @@ from flask_jwt_extended import get_jwt_identity , jwt_required
 
 auth_bp = Blueprint("auth", __name__)
 auth_service = AuthServices()
+from flask import Blueprint
+
+health_bp = Blueprint("health", __name__)
+
+@health_bp.route("/health", methods=["GET"])
+def health():
+    return {"status": "ok"}, 200
 
 @auth_bp.route("/register", methods=["POST"])
 def register():

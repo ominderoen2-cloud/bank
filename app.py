@@ -5,13 +5,14 @@ from repositories.transactions import create_transactions_table
 from repositories.users import create_users_table
 from flask import Flask 
 from flask_jwt_extended import JWTManager
-from routes.auth_routes import auth_bp
+from routes.auth_routes import auth_bp , health_bp
 import os
 from routes.fixed_account_routes import fixed_bp
 from routes.premium_account_routes import premium_bp
 from routes.transactions_routes import trans_bp
 from routes.junior_account_routes import junior_bp
 app = Flask(__name__)
+app.register_blueprint(health_bp)
 app.register_blueprint(fixed_bp)
 app.register_blueprint(trans_bp)
 app.register_blueprint(junior_bp)
