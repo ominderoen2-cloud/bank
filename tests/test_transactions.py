@@ -119,7 +119,7 @@ def test_list_transactions(client):
     assert len(response.json) == 1
     assert response.json[0]["transaction_id"] == "TRANS1"
 
-def test_get_one_transaction(client):
+def test_get_one_transaction_fields(client):
     payload = {
         "transaction_id": "TRANS1",
         "account_from": "J1",
@@ -141,7 +141,7 @@ def test_get_one_transaction(client):
     assert response.json["account_to"] == "P1"
     assert response.json["amount"] == 500
 
-def test_update_transaction(client):
+def test_update_transaction_fields(client):
     payload = {
         "transaction_id": "TRANS1",
         "account_from": "J1",
