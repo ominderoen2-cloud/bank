@@ -131,7 +131,8 @@ pytest -v
 
 Current status:
 
--  26 tests passing
+-  28 tests passing
+-  0 warnings
 
 ---
 
