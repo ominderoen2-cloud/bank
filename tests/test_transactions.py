@@ -47,23 +47,6 @@ def test_duplicate_transaction(client):
     response = client.post("/trans" , json=payload , headers=headers)
     assert response.status_code == 409
     assert response.json == {"message":"transaction not added"}
-def list_transactions(client):
-    headers = get_headers(client)
-    client.post("/trans" , json = {"transaction_id":"TRANS1" , 
-                                              "account_from":"J1" , 
-                                              "account_to":"P1" , 
-                                              "amount":500 , 
-                                              "account_from_balance":1000 , 
-                                              "account_to_balance":5000 ,
-                                                "transaction_time":datetime.now().isoformat()}, headers=headers)
-    response = client.get("/trans", headers=headers)
-    assert response.status_code == 200
-    assert response.json["transaction_id"] == "TRANS1"
-    assert response.json["account_from"] == "J1"
-    assert response.json["account_to"] == "P1"
-    assert response.json["amount"] == 500
-    assert response.json["account_from_balance"] == 1000
-    assert response.json["account_to_balance"] == 5000
 def test_get_one_transaction(client):
      headers = get_headers(client)
      client.post("/trans" , json = {"transaction_id":"TRANS1" , 
