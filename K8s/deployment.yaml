@@ -19,8 +19,8 @@ spec:
     spec:
       containers:
         - name: bank-api
-          image: bank-api:latest
-          imagePullPolicy: Never
+          image: ghcr.io/ominderoen2-cloud/bank:2b23886803ed628d0a64611847bdc210a8e9dd8b
+          imagePullPolicy: Always
 
           ports:
             - containerPort: 5000
