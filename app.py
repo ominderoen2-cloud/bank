@@ -23,7 +23,7 @@ jwt = JWTManager(app)
 app.register_blueprint(auth_bp)
 @app.route("/")
 def home():
-    return{"status":"api running"}
+    return{"status":"api running","version":"v2"}
 create_fixed_account_table()
 create_premium_account_table()
 create_junior_account_table()
